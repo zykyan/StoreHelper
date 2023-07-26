@@ -61,8 +61,6 @@ public struct SubscriptionView: View {
 //                .onTapGesture { productInfoCompletion(productId) }
             
             PurchaseButton(purchaseState: $purchaseState, productId: productId, price: price, signPromotionalOffer: signPromotionalOffer)
-            Text("Purchase State " + purchaseState.shortDescription())
-            Text("Subscription Info " + (subscriptionInfo?.subscriptionStatus.debugDescription ?? "NONE"))
             if purchaseState == .purchased, subscriptionInfo != nil {
                 SubscriptionInfoView(subscriptionInfo: subscriptionInfo!)
             } else {
