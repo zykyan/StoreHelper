@@ -62,7 +62,7 @@ public struct SubscriptionView: View {
             
             PurchaseButton(purchaseState: $purchaseState, productId: productId, price: price, signPromotionalOffer: signPromotionalOffer)
             Text("Purchase State " + purchaseState.shortDescription())
-            Text("Subscription Info " + (subscriptionInfo?.subscriptionStatus.debugDescription ?? "NOPE"))
+            Text("Subscription Info " + (subscriptionInfo?.subscriptionStatus.debugDescription ?? "NONE"))
             if purchaseState == .purchased, subscriptionInfo != nil {
                 SubscriptionInfoView(subscriptionInfo: subscriptionInfo!)
             } else {

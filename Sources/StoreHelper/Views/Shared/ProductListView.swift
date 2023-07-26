@@ -63,6 +63,7 @@ public struct ProductListView: View {
             }
 
             if storeHelper.hasSubscriptionProducts, let subscriptions = storeHelper.subscriptionProducts {
+                Text("TYPE" + String(storeHelper.subscriptionProducts?.count ?? -1))
                 SubscriptionListViewRow(products: subscriptions, headerText: "Subscriptions", signPromotionalOffer: signPromotionalOffer, productInfoCompletion: productInfoCompletion)
             }
             
