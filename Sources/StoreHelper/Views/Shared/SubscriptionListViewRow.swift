@@ -28,7 +28,7 @@ public struct SubscriptionListViewRow: View {
                 signPromotionalOffer: ((ProductId, String) async -> Product.PurchaseOption?)? = nil,
                 productInfoCompletion: @escaping ((ProductId) -> Void)) {
         
-        self.products = products
+        self.products = products.sorted(by: { return $0.price < $1.price })
         self.headerText = headerText
         self.signPromotionalOffer = signPromotionalOffer
         self.productInfoCompletion = productInfoCompletion
@@ -54,5 +54,9 @@ public struct SubscriptionListViewRow: View {
         .onChange(of: storeHelper.purchasedProducts) { _ in
             Task.init { subscriptionInfo = await storeHelper.subscriptionHelper.groupSubscriptionInfo()}
         }
+    }
+    
+    private func sortByPrice(_ products: [Product]) -> [Product] {
+        products.sorted(by: { return $0.price < $1.price })
     }
 }
