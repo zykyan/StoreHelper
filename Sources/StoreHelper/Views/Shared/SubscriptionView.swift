@@ -64,7 +64,8 @@ public struct SubscriptionView: View {
             if purchaseState == .purchased, subscriptionInfo != nil {
                 SubscriptionInfoView(subscriptionInfo: subscriptionInfo!)
             } else {
-                ProductInfoView(productId: productId, displayName: displayName, productInfoCompletion: productInfoCompletion)
+                EmptyView()
+//                ProductInfoView(productId: productId, displayName: displayName, productInfoCompletion: productInfoCompletion)
             }
             
             Divider()
