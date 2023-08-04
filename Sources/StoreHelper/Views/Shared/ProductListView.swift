@@ -63,7 +63,7 @@ public struct ProductListView: View {
             }
 
             if storeHelper.hasSubscriptionProducts, let subscriptions = storeHelper.subscriptionProducts {
-                SubscriptionListViewRow(products: subscriptions, headerText: "Subscriptions", signPromotionalOffer: signPromotionalOffer, productInfoCompletion: productInfoCompletion)
+                SubscriptionListViewRow(products: subscriptions, headerText: " ", signPromotionalOffer: signPromotionalOffer, productInfoCompletion: productInfoCompletion)
             }
             
         } else {
