@@ -19,7 +19,10 @@ public struct ContactUsView: View {
     public var body: some View {
         if let sContactUrl = Configuration.contactUsUrl.stringValue(storeHelper: storeHelper), let contactUrl = URL(string: sContactUrl) {
             Button(action: { openURL(contactUrl)}) {
-                Label(title: { BodyFont(scaleFactor: storeHelper.fontScaleFactor) { Text("Contact Us")}.padding([.top, .bottom, .trailing])},
+                Label(title: { BodyFont(scaleFactor: storeHelper.fontScaleFactor) {
+                    let contactUsButtonText = Configuration.contactUsButtonText.stringValue(storeHelper: storeHelper) ?? "Contact Us"
+                    Text(contactUsButtonText)
+                }.padding([.top, .bottom, .trailing])},
                       icon:  { Image(systemName: "bubble.right").bodyImageNotRounded().frame(height: 24).padding(.leading)})
             }
             #if os(iOS)
@@ -29,10 +32,10 @@ public struct ContactUsView: View {
             #endif
             .padding([.top, .leading, .trailing])
             
-            CaptionFont(scaleFactor: storeHelper.fontScaleFactor) { Text("Want to talk to us? \(Utils.confirmGestureText()) \"Contact Us\" to open a web page with support and contact information.")}
-                .multilineTextAlignment(.center)
-                .padding(EdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 10))
-                .foregroundColor(.secondary)
+//            CaptionFont(scaleFactor: storeHelper.fontScaleFactor) { Text("Want to talk to us? \(Utils.confirmGestureText()) \"Contact Us\" to open a web page with support and contact information.")}
+//                .multilineTextAlignment(.center)
+//                .padding(EdgeInsets(top: 0, leading: 10, bottom: 10, trailing: 10))
+//                .foregroundColor(.secondary)
         }
     }
 }

@@ -55,6 +55,10 @@ public enum Configuration {
     /// Defaul value is Privacy Policy
     case privacyPolicyButtonText
     
+    /// The text to display on the Contact Us button. If nil the default text is set
+    /// Defaul value is Contact Us
+    case contactUsButtonText
+    
     // Default values:
     private static let AppGroupBundleId: String?            = nil
     private static let ContactUsUrl: String?                = nil
@@ -64,9 +68,10 @@ public enum Configuration {
     private static let PrivacyPolicyUrl: String?            = nil
     private static let RedeemOfferCodeButtonText: String?   = "Redeem an Offer"
     private static let RefreshProductsButtonText: String?   = "Refresh Product List"
-    private static let ManagePurchasesButtonText: String? = "Manage Purchases"
-    private static let PrivacyPolicyButtonText: String? = "Privacy Policy"
-    private static let TermsOfServiceButtonText: String? = "Terms of Service"
+    private static let ManagePurchasesButtonText: String?   = "Manage Purchases"
+    private static let PrivacyPolicyButtonText: String?     = "Privacy Policy"
+    private static let TermsOfServiceButtonText: String?    = "Terms of Service"
+    private static let ContactUsButtonText: String?         = "Contact Us"
     
     /// Gets an overridden configuration value, or if not found, provides a default value.
     /// - Parameter storeHelper: An instance of StoreHelper
@@ -105,6 +110,7 @@ public enum Configuration {
             case .managePurchasesButtonText:  return "managePurchasesButtonText"
             case .privacyPolicyButtonText:    return "privacyPolicyButtonText"
             case .termsOfServiceButtonText:   return "termsOfServiceButtonText"
+            case .contactUsButtonText:        return "contactUsButtonText"
         }
     }
     
@@ -129,9 +135,10 @@ public enum Configuration {
             case .privacyPolicyUrl:           return Configuration.PrivacyPolicyUrl
             case .redeemOfferCodeButtonText:  return Configuration.RedeemOfferCodeButtonText
             case .refreshProductsButtonText:  return Configuration.RefreshProductsButtonText
-            case .managePurchasesButtonText: return Configuration.ManagePurchasesButtonText
+            case .managePurchasesButtonText:  return Configuration.ManagePurchasesButtonText
             case .privacyPolicyButtonText:    return Configuration.PrivacyPolicyButtonText
             case .termsOfServiceButtonText:   return Configuration.TermsOfServiceButtonText
+            case .contactUsButtonText:        return Configuration.ContactUsButtonText
         }
     }
     
@@ -161,6 +168,7 @@ public enum Configuration {
             case .managePurchasesButtonText:  return false
             case .privacyPolicyButtonText:    return false
             case .termsOfServiceButtonText:   return false
+            case .contactUsButtonText:        return false
         }
     }
 }

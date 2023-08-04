@@ -46,7 +46,10 @@ public struct PurchaseManagement: View {
                     .xPlatformButtonStyleBorderedProminent()
                 
                 if let contactUrl {
-                    Button(action: { openURL(contactUrl)}) { Label("Contact Us", systemImage: "bubble.right")}
+                    Button(action: { openURL(contactUrl)}) {
+                        let contactUsButtonText = Configuration.contactUsButtonText.stringValue(storeHelper: storeHelper) ?? "Contact Us"
+                        Label(contactUsButtonText, systemImage: "bubble.right")
+                    }
                         .xPlatformButtonStyleBorderedProminent()
                 }
 
