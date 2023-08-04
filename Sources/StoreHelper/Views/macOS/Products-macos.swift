@@ -73,7 +73,11 @@ public struct Products: View {
                         RefreshProductsView()
                         ContactUsView()
                     },
-                    label: { Label("Manage Purchases", systemImage: "creditcard.circle")})
+                    label: {
+                        let managePurchasesTitle = Configuration.managePurchasesButtonText.stringValue(storeHelper: storeHelper) ?? "Manage Purchases"
+                        Label(managePurchasesTitle, systemImage: "creditcard.circle")
+                        
+                    })
                     .onTapGesture { withAnimation { showManagePurchases.toggle()}}
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 5, trailing: 20))
                 }

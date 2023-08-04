@@ -18,9 +18,12 @@ public struct TermsOfServiceAndPrivacyPolicyView: View {
     
     public var body: some View {
         HStack {
-            if let termsOfServiceUrl { Link("Terms of Service", destination: termsOfServiceUrl) }
+            let termsOfServiceText = Configuration.termsOfServiceButtonText.stringValue(storeHelper: storeHelper) ?? "Terms of Service"
+            let privacyPolicyText = Configuration.privacyPolicyButtonText.stringValue(storeHelper: storeHelper) ?? "Privacy Policy"
+            
+            if let termsOfServiceUrl { Link(termsOfServiceText, destination: termsOfServiceUrl) }
             if termsOfServiceUrl != nil, privacyPolicyUrl != nil { Text("and") }
-            if let privacyPolicyUrl { Link("Privacy Policy", destination: privacyPolicyUrl) }
+            if let privacyPolicyUrl { Link(privacyPolicyText, destination: privacyPolicyUrl) }
         }
         .task {
             if  let termsOfService = Configuration.termsOfServiceUrl.stringValue(storeHelper: storeHelper),

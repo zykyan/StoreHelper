@@ -76,7 +76,8 @@ public struct Products: View {
                     ContactUsView()
                     
                 }, label: {
-                    Label("Manage Purchases", systemImage: "creditcard.circle")
+                    let managePurchasesTitle = Configuration.managePurchasesButtonText.stringValue(storeHelper: storeHelper) ?? "Manage Purchases"
+                    Label(managePurchasesTitle, systemImage: "creditcard.circle")
                 })
                 .padding()
                 

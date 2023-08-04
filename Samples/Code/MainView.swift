@@ -18,7 +18,7 @@ struct MainView: View {
                 NavigationLink(destination: ContentView()) { Text("Product List").font(.largeTitle).padding()}
                 NavigationLink(destination: ProductView(productId: largeFlowersId)) { Text("Large Flowers").font(.largeTitle).padding()}
                 NavigationLink(destination: ProductView(productId: smallFlowersId)) { Text("Small Flowers").font(.largeTitle).padding()}
-                NavigationLink(destination: SubscriptionView()) { Text("Subscriptions").font(.largeTitle).padding()}
+                NavigationLink(destination: SubscriptionView()) { Text("").font(.largeTitle).padding()}
                 NavigationLink(destination: SimplePurchaseView()) { Text("Simple Purchase").font(.largeTitle).padding()}
             }
         }
