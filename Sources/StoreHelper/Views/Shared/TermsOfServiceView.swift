@@ -17,7 +17,7 @@ public struct TermsOfServiceAndPrivacyPolicyView: View {
     public init() {}
     
     public var body: some View {
-        VStack{
+        VStack(spacing:10){
             HStack {
                 let termsOfServiceText = Configuration.termsOfServiceButtonText.stringValue(storeHelper: storeHelper) ?? "Terms of Service"
                 let privacyPolicyText = Configuration.privacyPolicyButtonText.stringValue(storeHelper: storeHelper) ?? "Privacy Policy"
@@ -31,7 +31,7 @@ public struct TermsOfServiceAndPrivacyPolicyView: View {
             Text("サブスクリプションの契約期間は、期限が切れる24時間以内に自動更新の解除をされない場合、自動更新されます。")
                 .fontWeight(.regular)
             
-        }
+        }.padding()
         
         .task {
             if  let termsOfService = Configuration.termsOfServiceUrl.stringValue(storeHelper: storeHelper),
