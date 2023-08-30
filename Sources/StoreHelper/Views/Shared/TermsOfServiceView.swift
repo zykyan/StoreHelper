@@ -26,11 +26,12 @@ public struct TermsOfServiceAndPrivacyPolicyView: View {
                 if termsOfServiceUrl != nil, privacyPolicyUrl != nil { Text("and") }
                 if let privacyPolicyUrl { Link(privacyPolicyText, destination: privacyPolicyUrl) }
             }
-            Text("自動継続課金")
-                .fontWeight(.semibold)
-            Text("サブスクリプションの契約期間は、期限が切れる24時間以内に自動更新の解除をされない場合、自動更新されます。")
-                .fontWeight(.regular)
-            
+            VStack(alignment: .leading){
+                Text("自動継続課金")
+                    .fontWeight(.semibold)
+                Text("サブスクリプションの契約期間は、期限が切れる24時間以内に自動更新の解除をされない場合、自動更新されます。")
+                    .fontWeight(.regular)
+            }
         }.padding()
         
         .task {
