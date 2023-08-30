@@ -17,14 +17,22 @@ public struct TermsOfServiceAndPrivacyPolicyView: View {
     public init() {}
     
     public var body: some View {
-        HStack {
-            let termsOfServiceText = Configuration.termsOfServiceButtonText.stringValue(storeHelper: storeHelper) ?? "Terms of Service"
-            let privacyPolicyText = Configuration.privacyPolicyButtonText.stringValue(storeHelper: storeHelper) ?? "Privacy Policy"
+        VStack{
+            HStack {
+                let termsOfServiceText = Configuration.termsOfServiceButtonText.stringValue(storeHelper: storeHelper) ?? "Terms of Service"
+                let privacyPolicyText = Configuration.privacyPolicyButtonText.stringValue(storeHelper: storeHelper) ?? "Privacy Policy"
+                
+                if let termsOfServiceUrl { Link(termsOfServiceText, destination: termsOfServiceUrl) }
+                if termsOfServiceUrl != nil, privacyPolicyUrl != nil { Text("and") }
+                if let privacyPolicyUrl { Link(privacyPolicyText, destination: privacyPolicyUrl) }
+            }
+            Text("自動継続課金")
+                .fontWeight(.semibold)
+            Text("サブスクリプションの契約期間は、期限が切れる24時間以内に自動更新の解除をされない場合、自動更新されます。")
+                .fontWeight(.regular)
             
-            if let termsOfServiceUrl { Link(termsOfServiceText, destination: termsOfServiceUrl) }
-            if termsOfServiceUrl != nil, privacyPolicyUrl != nil { Text("and") }
-            if let privacyPolicyUrl { Link(privacyPolicyText, destination: privacyPolicyUrl) }
         }
+        
         .task {
             if  let termsOfService = Configuration.termsOfServiceUrl.stringValue(storeHelper: storeHelper),
                 let tosUrl = URL(string: termsOfService) { termsOfServiceUrl = tosUrl }
