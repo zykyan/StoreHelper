@@ -148,7 +148,7 @@ public struct LargeTitleFont<Content: View>: View {
         self.content = content
     }
     
-    public var body: some View { content().font(.system(size: FontUtil.scale(for: .largeTitle, and: scaleFactor)))}
+    public var body: some View { content().font(.system(size: FontUtil.scale(for: .title, and: scaleFactor)))}
 }
 
 @available(iOS 15.0, macOS 12.0, *)
