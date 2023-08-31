@@ -119,7 +119,7 @@ public struct PriceViewModel {
         switch paymentMode {
             case .payAsYouGo: return "\(periodCount) \(periodText(unit: periodUnit, value: periodCount)) at\n \(offerType == .introductory ? "an introductory" : "a promotional") price of\n \(price) per \(periodText(unit: periodUnit, value: 1))"
             case .payUpFront: return "\(periodValue) \(periodText(unit: periodUnit, value: periodValue)) at\n \(offerType == .introductory ? "an introductory" : "a promotional") price of\n \(price)"
-            case .freeTrial:  return "\(periodValue) \(periodText(unit: periodUnit, value: periodValue))\n\(offerType == .introductory ? "free trial" : "promotional period at no charge")"
+            case .freeTrial:  return "\(periodValue) \(periodText(unit: periodUnit, value: periodValue)) \(offerType == .introductory ? "free trial" : "promotional period at no charge")"
             default: return nil
         }
     }
