@@ -43,7 +43,7 @@ public struct SubscriptionView: View {
     
     public var body: some View {
         VStack {
-            LargeTitleFont(scaleFactor: storeHelper.fontScaleFactor) { Text(displayName)}.padding(5)
+            TitleFont(scaleFactor: storeHelper.fontScaleFactor) { Text(displayName)}.padding(5)
             SubHeadlineFont(scaleFactor: storeHelper.fontScaleFactor) { Text(description)}
                 .padding(EdgeInsets(top: 0, leading: 5, bottom: 3, trailing: 5))
                 .multilineTextAlignment(.center)
