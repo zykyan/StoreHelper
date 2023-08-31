@@ -23,12 +23,12 @@ struct ContentView: View {
     var body: some View {
         Products() { id in
             productId = id
-            showProductInfoSheet = true
+            showProductInfoSheet = false
         }
         .sheet(isPresented: $showProductInfoSheet) {
             VStack {
                 // Pull in text and images that explain the particular product identified by `productId`
-                ProductInfo(productInfoProductId: $productId, showProductInfoSheet: $showProductInfoSheet)
+//                ProductInfo(productInfoProductId: $productId, showProductInfoSheet: $showProductInfoSheet)
             }
             #if os(macOS)
             .frame(minWidth: 500, idealWidth: 500, maxWidth: 500, minHeight: 500, idealHeight: 500, maxHeight: 500)
