@@ -31,7 +31,7 @@ public struct TermsOfServiceAndPrivacyPolicyView: View {
                     .fontWeight(.semibold)
                 Text("サブスクリプションの契約期間は、期限が切れる24時間以内に自動更新の解除をされない場合、自動更新されます。")
                     .fontWeight(.regular)
-            }
+            }.padding(.top, 8)
         }.padding()
         
         .task {
